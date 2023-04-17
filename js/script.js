@@ -1,23 +1,12 @@
 import fetchEmployees from './modules/init.js'
 
-fetchEmployees.then(data => buildGrid(data))
-
-
-// CREATE AN ARRAY OF EMPLOYEES
-// let arrEmployees = [
-//     [34123413, "Zak Ruvalcaba", 3424, "zak@vectacorp.com", "Executive"],
-//     [23424665, "Sally Smith", 2344, "sally@vectacorp.com", "Administrative"],
-//     [12341244, "Mark Martin", 5352, "mark@vectacorp.com", "Sales"],
-//     [14545423, "Robin Banks", 7867, "robin@vectacorp.com", "Marketing"],
-//     [13413453, "Sue Wedge", 1235, "sue@vectacorp.com", "QA"]
-// ]
-
 // GET DOM ELEMENTS
 let empTable    = document.querySelector('#employees')
 let empCount    = document.querySelector('#empCount')
 
 // BUILD THE EMPLOYEES TABLE WHEN THE PAGE LOADS
 // buildGrid(allEmployees)
+fetchEmployees.then(data => buildGrid(data))
 
 // DELETE EMPLOYEE
 empTable.addEventListener('click', (e) => {
@@ -41,7 +30,7 @@ function buildGrid(employees) {
     // LOOP THROUGH THE ARRAY OF EMPLOYEES
     // REBUILDING THE ROW STRUCTURE
     for (let employee of employees) {
-        console.log(employee)
+        // console.log(employee)
         tbody.innerHTML += 
         `
         <tr>
@@ -59,5 +48,3 @@ function buildGrid(employees) {
     // UPDATE EMPLOYEE COUNT
     empCount.value = `(${employees.length})`
 }
-
-// export default buildGrid(); 
